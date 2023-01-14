@@ -7,9 +7,11 @@ namespace technical.test.editor
     {
         [SerializeField] private Gizmo[] _gizmos = default;
 
+        public Gizmo[] Gizmos { get => _gizmos; private set => _gizmos = value; }
+
         public override string ToString()
         {
-            return "Gizmo count : " + _gizmos.Length;
+            return "Gizmo count : " + Gizmos.Length;
         }
     }
 

@@ -10,10 +10,14 @@ public class SceneGizmoEditor : Editor
     {
         base.OnInspectorGUI();
 
-        if(GUILayout.Button("ButtonTest"))
+        if(GUILayout.Button("Show Gizmos"))
         {
-            EditorWindow.CreateWindow<ShowGizmos>();
+            ShowGizmos window = EditorWindow.CreateWindow<ShowGizmos>();
+            SceneGizmoAsset currentGizmoAsset = (SceneGizmoAsset)target;
+            window.UpdateGizmoList(currentGizmoAsset.Gizmos);
         }
+
+        //we can use target to made modification of the object whose being inspected
     }
 
 }
