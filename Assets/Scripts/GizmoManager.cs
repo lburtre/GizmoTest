@@ -23,7 +23,7 @@ public class GizmoManager : MonoBehaviour
     {
         for (int i = 0; i < listGizmoMonoBehavior.Count; i++)
         {
-            DestroyImmediate(listGizmoMonoBehavior[i]);
+            listGizmoMonoBehavior[i].OnDestroy();
         }
 
         listGizmoMonoBehavior.Clear();
@@ -35,5 +35,24 @@ public class GizmoManager : MonoBehaviour
         gizmo.positionGizmo = positionGizmo;
         gizmo.name = name;
         listGizmoMonoBehavior.Add(gizmo);
+
+        SphereCollider collider = gameObjectGizmo.AddComponent<SphereCollider>();
+        collider.center = positionGizmo;
+        collider.radius = gizmo.ReturnRadius() * 2;
+        gizmo.sphereCollider = collider;
+    }
+
+    private void OnGUI()
+    {
+        Ray ray = Camera.current.ScreenPointToRay(Event.current.mousePosition);
+        RaycastHit hit = new RaycastHit();
+
+        Debug.Log(Event.current.mousePosition);
+        Debug.Log(Camera.current);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit);
+        }
     }
 }

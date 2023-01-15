@@ -12,12 +12,11 @@ public class SceneGizmoEditor : Editor
 
         if(GUILayout.Button("Show Gizmos"))
         {
-            GizmoEditorTool window = EditorWindow.CreateWindow<GizmoEditorTool>();
-            SceneGizmoAsset currentGizmoAsset = (SceneGizmoAsset)target;
-            window.UpdateGizmoList(currentGizmoAsset.Gizmos);
-        }
+            GizmoEditorTool.ShowGismosWindow();
 
-        //we can use target to made modification of the object whose being inspected
+            SceneGizmoAsset currentGizmoAsset = (SceneGizmoAsset)target;
+            GizmoEditorTool.Instance.UpdateGizmoList(currentGizmoAsset.Gizmos);
+        }
     }
 
 }

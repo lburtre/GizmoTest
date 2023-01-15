@@ -28,6 +28,19 @@ public class GizmoEditorTool : EditorWindow
         EditorWindow.GetWindow<GizmoEditorTool>("Show Gizmos"); //Name of the window
     }
 
+    public static GizmoEditorTool Instance { get; private set; }
+
+    private void OnValidate()
+    {
+        if (Instance)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+
+        Instance = this;
+    }
+
     private void OnGUI()
     {
         GUILayout.Label(TEXT_GIZMO_EDITOR, EditorStyles.boldLabel);
@@ -55,8 +68,6 @@ public class GizmoEditorTool : EditorWindow
                 GUILayout.EndHorizontal();
             }
         }
-
-        Debug.Log(Selection.gameObjects);
     }
 
     public void UpdateGizmoList(Gizmo[] listNewGizmos)
@@ -71,5 +82,11 @@ public class GizmoEditorTool : EditorWindow
         }
 
         OnGUI();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 }

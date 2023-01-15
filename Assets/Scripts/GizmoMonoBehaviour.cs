@@ -9,6 +9,8 @@ public class GizmoMonoBehaviour : MonoBehaviour
     private const float TEXT_HEIGHT = 0.6f;
     private const float OFFSET_DOWN_TEXT = -0.1f;
 
+    public SphereCollider sphereCollider = default;
+
     public Vector3 positionGizmo;
     public string name = "";
 
@@ -16,7 +18,6 @@ public class GizmoMonoBehaviour : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawSphere(positionGizmo, RADIUS_GIZMO);
-        //Gizmos.DrawIcon(positionGizmo, "");
 
         Vector3 newPosition = positionGizmo + Vector3.up * TEXT_HEIGHT;
 
@@ -30,9 +31,14 @@ public class GizmoMonoBehaviour : MonoBehaviour
         Handles.DrawLine(newPosition, positionGizmo);
     }
 
-    private void OnGUI()
+    public float ReturnRadius()
     {
-        Debug.Log(Selection.gameObjects);
-        
+        return RADIUS_GIZMO;
+    }
+
+    public void OnDestroy()
+    {
+        DestroyImmediate(sphereCollider);
+        DestroyImmediate(this); 
     }
 }
