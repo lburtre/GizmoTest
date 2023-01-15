@@ -12,7 +12,7 @@ public class SceneGizmoEditor : Editor
 
         if(GUILayout.Button("Show Gizmos"))
         {
-            ShowGizmos window = EditorWindow.CreateWindow<ShowGizmos>();
+            GizmoEditorTool window = EditorWindow.CreateWindow<GizmoEditorTool>();
             SceneGizmoAsset currentGizmoAsset = (SceneGizmoAsset)target;
             window.UpdateGizmoList(currentGizmoAsset.Gizmos);
         }

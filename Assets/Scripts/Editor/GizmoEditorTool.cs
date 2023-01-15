@@ -3,8 +3,12 @@ using technical.test.editor;
 using UnityEditor;
 using UnityEngine;
 
-public class ShowGizmos : EditorWindow
+//public delegate void GizmoEditorToolEventHandler(Vector3 positionGizmo);
+
+public class GizmoEditorTool : EditorWindow
 {
+    //public static event GizmoEditorToolEventHandler OnCreatGizmo;
+
     private const string TEXT_TEXT = "Text";
     private const string TEXT_GIZMO_EDITOR = "Gizmo Editor";
     private const string TEXT_POSITION = "Position";
@@ -21,7 +25,7 @@ public class ShowGizmos : EditorWindow
     [MenuItem("Window/Custom/Show Gizmos")] //Path to find the window
     public static void ShowGismosWindow()
     {
-        EditorWindow.GetWindow<ShowGizmos>("Show Gizmos"); //Name of the window
+        EditorWindow.GetWindow<GizmoEditorTool>("Show Gizmos"); //Name of the window
     }
 
     private void OnGUI()
@@ -29,51 +33,43 @@ public class ShowGizmos : EditorWindow
         GUILayout.Label(TEXT_GIZMO_EDITOR, EditorStyles.boldLabel);
 
         GUILayout.BeginHorizontal();
-            GUILayout.Label(TEXT_TEXT);
-            GUILayout.Label(TEXT_POSITION);
+        GUILayout.Label(TEXT_TEXT);
+        GUILayout.Label(TEXT_POSITION);
         GUILayout.EndHorizontal();
 
-        if(listGizmos != default)
+        if (listGizmos != default)
         {
             for (int i = 0; i < listGizmos.Length; i++)
             {
                 GUILayout.BeginHorizontal();
 
                 name = GUILayout.TextField(listGizmos[i].Name, GUILayout.Width(SIZE_TEXTFIELD));
-
                 GUILayout.Label(TEXT_X);
                 EditorGUILayout.TextField(listGizmos[i].Position.x.ToString(), GUILayout.Width(SIZE_TEXTFIELD));
-
                 GUILayout.Label(TEXT_Y);
                 EditorGUILayout.TextField(listGizmos[i].Position.y.ToString(), GUILayout.Width(SIZE_TEXTFIELD));
-
                 GUILayout.Label(TEXT_Z);
                 EditorGUILayout.TextField(listGizmos[i].Position.z.ToString(), GUILayout.Width(SIZE_TEXTFIELD));
-
                 GUILayout.Button(TEXT_EDIT);
 
                 GUILayout.EndHorizontal();
-
-
             }
         }
 
-        /*
-        textText = EditorGUILayout.TextField("Testt2", textText);
-        textPosition = EditorGUILayout.TextField("TText", textText);
-
-        if (GUILayout.Button("TestButton"))
-        {
-            Debug.Log(22);
-        }
-
-        Selection.gameObjects => Return all the gameObjects selected in the scene
-        */
+        Debug.Log(Selection.gameObjects);
     }
 
     public void UpdateGizmoList(Gizmo[] listNewGizmos)
     {
         listGizmos = listNewGizmos;
+
+        GizmoManager.ClearScriptsGizmoBehaviour();
+
+        for (int i = 0; i < listGizmos.Length; i++)
+        {
+            GizmoManager.CreateNewGizmo(listGizmos[i].Position, listGizmos[i].Name);
+        }
+
         OnGUI();
     }
 }
