@@ -1523,7 +1523,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381379556}
-  - component: {fileID: 381379557}
   - component: {fileID: 381379567}
   - component: {fileID: 381379566}
   - component: {fileID: 381379565}
@@ -1556,18 +1555,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &381379557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6d6572900f1874e8516f4fa82e429f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &381379558
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1579,7 +1566,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: -13.68, y: 1.921, z: -1}
 --- !u!114 &381379559
 MonoBehaviour:
@@ -1593,9 +1580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 381379558}
-  positionGizmo: {x: -13.68, y: 1.921, z: -1}
-  name: Boss Arena
+  gizmoCollider: {fileID: 381379558}
+  gizmoPosition: {x: -13.68, y: 1.921, z: -1}
+  gizmoName: Boss Arena
 --- !u!135 &381379560
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1607,7 +1594,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: -10.06, y: 2, z: -0.53}
 --- !u!114 &381379561
 MonoBehaviour:
@@ -1621,9 +1608,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 381379560}
-  positionGizmo: {x: -10.06, y: 2, z: -0.53}
-  name: PNJ to help
+  gizmoCollider: {fileID: 381379560}
+  gizmoPosition: {x: -10.06, y: 2, z: -0.53}
+  gizmoName: PNJ to help
 --- !u!135 &381379562
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1635,7 +1622,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: -6.425, y: 1, z: -0.3}
 --- !u!114 &381379563
 MonoBehaviour:
@@ -1649,9 +1636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 381379562}
-  positionGizmo: {x: -6.425, y: 1, z: -0.3}
-  name: First Fight
+  gizmoCollider: {fileID: 381379562}
+  gizmoPosition: {x: -6.425, y: 1, z: -0.3}
+  gizmoName: First Fight
 --- !u!135 &381379564
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1663,7 +1650,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: -15, y: 2, z: -1}
 --- !u!114 &381379565
 MonoBehaviour:
@@ -1677,9 +1664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 381379564}
-  positionGizmo: {x: -15, y: 2, z: -1}
-  name: End Level
+  gizmoCollider: {fileID: 381379564}
+  gizmoPosition: {x: -15, y: 2, z: -1}
+  gizmoName: End Level
 --- !u!135 &381379566
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1691,7 +1678,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.2
   m_Center: {x: -0.07600021, y: 1.65, z: 0.03799999}
 --- !u!114 &381379567
 MonoBehaviour:
@@ -1705,9 +1692,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 381379566}
-  positionGizmo: {x: -0.07600021, y: 1.65, z: 0.03799999}
-  name: Spawn
+  gizmoCollider: {fileID: 381379566}
+  gizmoPosition: {x: -0.07600021, y: 1.65, z: 0.03799999}
+  gizmoName: Spawn
 --- !u!1001 &397147169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2258,7 +2245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &503988228
 Transform:
   m_ObjectHideFlags: 0

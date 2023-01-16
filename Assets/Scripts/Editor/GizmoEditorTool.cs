@@ -3,12 +3,8 @@ using technical.test.editor;
 using UnityEditor;
 using UnityEngine;
 
-//public delegate void GizmoEditorToolEventHandler(Vector3 positionGizmo);
-
 public class GizmoEditorTool : EditorWindow
 {
-    //public static event GizmoEditorToolEventHandler OnCreatGizmo;
-
     private const string TEXT_TEXT = "Text";
     private const string TEXT_GIZMO_EDITOR = "Gizmo Editor";
     private const string TEXT_POSITION = "Position";
@@ -22,10 +18,12 @@ public class GizmoEditorTool : EditorWindow
 
     private Gizmo[] listGizmos = default;
 
-    [MenuItem("Window/Custom/Show Gizmos")] //Path to find the window
+    public int gizmoSelected = 0; //None gizmo selected if this value is at 0
+
+    [MenuItem("Window/Custom/Show Gizmos")]
     public static void ShowGismosWindow()
     {
-        EditorWindow.GetWindow<GizmoEditorTool>("Show Gizmos"); //Name of the window
+        EditorWindow.GetWindow<GizmoEditorTool>("Show Gizmos");
     }
 
     public static GizmoEditorTool Instance { get; private set; }
@@ -55,7 +53,6 @@ public class GizmoEditorTool : EditorWindow
             for (int i = 0; i < listGizmos.Length; i++)
             {
                 GUILayout.BeginHorizontal();
-
                 name = GUILayout.TextField(listGizmos[i].Name, GUILayout.Width(SIZE_TEXTFIELD));
                 GUILayout.Label(TEXT_X);
                 EditorGUILayout.TextField(listGizmos[i].Position.x.ToString(), GUILayout.Width(SIZE_TEXTFIELD));
@@ -64,7 +61,6 @@ public class GizmoEditorTool : EditorWindow
                 GUILayout.Label(TEXT_Z);
                 EditorGUILayout.TextField(listGizmos[i].Position.z.ToString(), GUILayout.Width(SIZE_TEXTFIELD));
                 GUILayout.Button(TEXT_EDIT);
-
                 GUILayout.EndHorizontal();
             }
         }
@@ -74,11 +70,11 @@ public class GizmoEditorTool : EditorWindow
     {
         listGizmos = listNewGizmos;
 
-        GizmoManager.ClearScriptsGizmoBehaviour();
+        GizmoManager.Instance.ClearScriptsGizmoBehaviour();
 
         for (int i = 0; i < listGizmos.Length; i++)
         {
-            GizmoManager.CreateNewGizmo(listGizmos[i].Position, listGizmos[i].Name);
+            GizmoManager.Instance.CreateNewGizmo(listGizmos[i].Position, listGizmos[i].Name);
         }
 
         OnGUI();

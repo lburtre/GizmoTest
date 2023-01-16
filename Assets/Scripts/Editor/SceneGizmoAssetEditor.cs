@@ -18,5 +18,4 @@ public class SceneGizmoEditor : Editor
             GizmoEditorTool.Instance.UpdateGizmoList(currentGizmoAsset.Gizmos);
         }
     }
-
 }

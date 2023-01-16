@@ -1,25 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GizmoManager : MonoBehaviour
 {
-    private static GameObject gameObjectGizmo;
-    public static List<GizmoMonoBehaviour> listGizmoMonoBehavior = new List<GizmoMonoBehaviour>();
+    private GameObject gizmoManagerGameObject;
+    public List<GizmoMonoBehaviour> listGizmoMonoBehavior = new List<GizmoMonoBehaviour>();
+
+    public static GizmoManager Instance { get; private set; }
 
     private void OnValidate()
     {
-        gameObjectGizmo = gameObject;
+        if (Instance)
+        {
+            DestroyImmediate(this);
+            return;
+        }
 
-        GizmoMonoBehaviour[] oldListGizmoMonoBehavior = gameObjectGizmo.GetComponents<GizmoMonoBehaviour>();
+        Instance = this;
+
+        gizmoManagerGameObject = gameObject;
+
+        GizmoMonoBehaviour[] oldListGizmoMonoBehavior = gizmoManagerGameObject.GetComponents<GizmoMonoBehaviour>();
 
         for (int i = 0; i < oldListGizmoMonoBehavior.Length; i++) //To recover the GizmoMonoBehaviour Scripts after modifications in script
         {
             listGizmoMonoBehavior.Add(oldListGizmoMonoBehavior[i]);
-        } 
+        }
+
+        Tools.current = Tool.None;
     }
 
-    public static void ClearScriptsGizmoBehaviour()
+    public void ClearScriptsGizmoBehaviour()
     {
         for (int i = 0; i < listGizmoMonoBehavior.Count; i++)
         {
@@ -29,30 +42,23 @@ public class GizmoManager : MonoBehaviour
         listGizmoMonoBehavior.Clear();
     }
 
-    public static void CreateNewGizmo(Vector3 positionGizmo, string name)
+    public void CreateNewGizmo(Vector3 positionGizmo, string name)
     {
-        GizmoMonoBehaviour gizmo = gameObjectGizmo.AddComponent<GizmoMonoBehaviour>();
-        gizmo.positionGizmo = positionGizmo;
-        gizmo.name = name;
+        GizmoMonoBehaviour gizmo = gizmoManagerGameObject.AddComponent<GizmoMonoBehaviour>();
+        gizmo.gizmoPosition = positionGizmo;
+        gizmo.gizmoName = name;
         listGizmoMonoBehavior.Add(gizmo);
 
-        SphereCollider collider = gameObjectGizmo.AddComponent<SphereCollider>();
+        SphereCollider collider = gizmoManagerGameObject.AddComponent<SphereCollider>();
         collider.center = positionGizmo;
-        collider.radius = gizmo.ReturnRadius() * 2;
-        gizmo.sphereCollider = collider;
+        collider.radius = gizmo.ReturnRadius();
+        gizmo.gizmoCollider = collider;
     }
 
-    private void OnGUI()
+    private void OnDestroy()
     {
-        Ray ray = Camera.current.ScreenPointToRay(Event.current.mousePosition);
-        RaycastHit hit = new RaycastHit();
-
-        //Debug.Log(Event.current.mousePosition);
-        //Debug.Log(Camera.current);
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            Debug.Log(hit);
-        }
+        if (Instance == this)
+            Instance = null;
     }
 }
+
