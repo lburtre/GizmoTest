@@ -23,7 +23,7 @@ public class GizmoManager : MonoBehaviour
     {
         for (int i = 0; i < listGizmoMonoBehavior.Count; i++)
         {
-            listGizmoMonoBehavior[i].OnDestroy();
+            listGizmoMonoBehavior[i].OnDestroyGizmo();
         }
 
         listGizmoMonoBehavior.Clear();
@@ -47,8 +47,8 @@ public class GizmoManager : MonoBehaviour
         Ray ray = Camera.current.ScreenPointToRay(Event.current.mousePosition);
         RaycastHit hit = new RaycastHit();
 
-        Debug.Log(Event.current.mousePosition);
-        Debug.Log(Camera.current);
+        //Debug.Log(Event.current.mousePosition);
+        //Debug.Log(Camera.current);
 
         if (Physics.Raycast(ray, out hit))
         {

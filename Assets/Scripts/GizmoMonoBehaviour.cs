@@ -36,9 +36,13 @@ public class GizmoMonoBehaviour : MonoBehaviour
         return RADIUS_GIZMO;
     }
 
-    public void OnDestroy()
+    public void OnDestroyGizmo()
     {
         DestroyImmediate(sphereCollider);
         DestroyImmediate(this); 
     }
+}
+
+internal class OnSceneGUI
+{
 }
