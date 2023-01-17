@@ -17,19 +17,9 @@ public class GizmoManagerEditor : Editor
             {
                 for (int i = 0; i < GizmoManager.Instance.listGizmoMonoBehavior.Count; i++)
                 {
-                    if(hit.collider == GizmoManager.Instance.listGizmoMonoBehavior[i].gizmoCollider)
+                    if (hit.collider == GizmoManager.Instance.listGizmoMonoBehavior[i].gizmoCollider)
                     {
-                        for (int j = GizmoManager.Instance.listGizmoMonoBehavior.Count - 1; j >= 0; j--)
-                        {
-                            /*if (i == j)
-                            {
-
-                            }
-                            else
-                            {
-                                GizmoManager.Instance.listGizmoMonoBehavior[j].OnDestroyGizmo();
-                            }*/
-                        }
+                        GizmoEditorTool.gizmoSelected = i + 1;
                     }
                 }
             }

@@ -30,19 +30,17 @@ public class GizmoManager : MonoBehaviour
             {
                 oldListGizmoMonoBehavior[i].OnDestroyGizmo(); 
             }
-
-            listGizmoMonoBehavior.Clear();
         };
+
+        Tools.current = Tool.None;
     }
 
-    public void ClearScriptsGizmoBehaviour()
+    public void ClearGizmoAndCollider()
     {
-        for (int i = 0; i < listGizmoMonoBehavior.Count; i++)
+        for (int i = listGizmoMonoBehavior.Count - 1; i >= 0; i--)
         {
             listGizmoMonoBehavior[i].OnDestroyGizmo();
         }
-
-        listGizmoMonoBehavior.Clear();
     }
 
     public void CreateNewGizmo(Vector3 positionGizmo, string name)
