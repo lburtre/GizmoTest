@@ -24,12 +24,15 @@ public class GizmoManager : MonoBehaviour
 
         GizmoMonoBehaviour[] oldListGizmoMonoBehavior = gizmoManagerGameObject.GetComponents<GizmoMonoBehaviour>();
 
-        for (int i = 0; i < oldListGizmoMonoBehavior.Length; i++) //To recover the GizmoMonoBehaviour Scripts after modifications in script
+        UnityEditor.EditorApplication.delayCall += () =>
         {
-            listGizmoMonoBehavior.Add(oldListGizmoMonoBehavior[i]);
-        }
+            for (int i = 0; i < oldListGizmoMonoBehavior.Length; i++)
+            {
+                oldListGizmoMonoBehavior[i].OnDestroyGizmo(); 
+            }
 
-        Tools.current = Tool.None;
+            listGizmoMonoBehavior.Clear();
+        };
     }
 
     public void ClearScriptsGizmoBehaviour()

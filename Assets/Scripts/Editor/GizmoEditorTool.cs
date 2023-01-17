@@ -16,7 +16,7 @@ public class GizmoEditorTool : EditorWindow
 
     private const float SIZE_TEXTFIELD = 100;
 
-    private Gizmo[] listGizmos = default;
+    private static Gizmo[] listGizmos = default;
 
     public int gizmoSelected = 0; //None gizmo selected if this value is at 0
 
@@ -24,19 +24,6 @@ public class GizmoEditorTool : EditorWindow
     public static void ShowGismosWindow()
     {
         EditorWindow.GetWindow<GizmoEditorTool>("Show Gizmos");
-    }
-
-    public static GizmoEditorTool Instance { get; private set; }
-
-    private void OnValidate()
-    {
-        if (Instance)
-        {
-            DestroyImmediate(this);
-            return;
-        }
-
-        Instance = this;
     }
 
     private void OnGUI()
@@ -66,7 +53,7 @@ public class GizmoEditorTool : EditorWindow
         }
     }
 
-    public void UpdateGizmoList(Gizmo[] listNewGizmos)
+    public static void UpdateGizmoList(Gizmo[] listNewGizmos)
     {
         listGizmos = listNewGizmos;
 
@@ -76,13 +63,5 @@ public class GizmoEditorTool : EditorWindow
         {
             GizmoManager.Instance.CreateNewGizmo(listGizmos[i].Position, listGizmos[i].Name);
         }
-
-        OnGUI();
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-            Instance = null;
     }
 }

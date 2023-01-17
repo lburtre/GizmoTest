@@ -15,7 +15,7 @@ public class SceneGizmoEditor : Editor
             GizmoEditorTool.ShowGismosWindow();
 
             SceneGizmoAsset currentGizmoAsset = (SceneGizmoAsset)target;
-            GizmoEditorTool.Instance.UpdateGizmoList(currentGizmoAsset.Gizmos);
+            GizmoEditorTool.UpdateGizmoList(currentGizmoAsset.Gizmos);
         }
     }
 }

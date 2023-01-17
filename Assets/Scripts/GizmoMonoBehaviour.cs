@@ -35,8 +35,14 @@ public class GizmoMonoBehaviour : MonoBehaviour
         return GIZMO_RADIUS;
     }
 
+    public void DestroyCollider()
+    {
+        DestroyImmediate(gizmoCollider);
+    }
+
     public void OnDestroyGizmo()
     {
+        GizmoManager.Instance.listGizmoMonoBehavior.Remove(this);
         DestroyImmediate(gizmoCollider);
         DestroyImmediate(this); 
     }

@@ -1523,14 +1523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381379556}
-  - component: {fileID: 381379567}
-  - component: {fileID: 381379566}
-  - component: {fileID: 381379565}
-  - component: {fileID: 381379564}
-  - component: {fileID: 381379563}
-  - component: {fileID: 381379562}
-  - component: {fileID: 381379561}
-  - component: {fileID: 381379560}
+  - component: {fileID: 381379557}
   - component: {fileID: 381379559}
   - component: {fileID: 381379558}
   m_Layer: 0
@@ -1555,6 +1548,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381379557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381379554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6d6572900f1874e8516f4fa82e429f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listGizmoMonoBehavior:
+  - {fileID: 381379559}
 --- !u!135 &381379558
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1567,7 +1574,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: -13.68, y: 1.921, z: -1}
+  m_Center: {x: -0.07600021, y: 1.65, z: 0.03799999}
 --- !u!114 &381379559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,118 +1588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoCollider: {fileID: 381379558}
-  gizmoPosition: {x: -13.68, y: 1.921, z: -1}
-  gizmoName: Boss Arena
---- !u!135 &381379560
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: -10.06, y: 2, z: -0.53}
---- !u!114 &381379561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gizmoCollider: {fileID: 381379560}
-  gizmoPosition: {x: -10.06, y: 2, z: -0.53}
-  gizmoName: PNJ to help
---- !u!135 &381379562
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: -6.425, y: 1, z: -0.3}
---- !u!114 &381379563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gizmoCollider: {fileID: 381379562}
-  gizmoPosition: {x: -6.425, y: 1, z: -0.3}
-  gizmoName: First Fight
---- !u!135 &381379564
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: -15, y: 2, z: -1}
---- !u!114 &381379565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gizmoCollider: {fileID: 381379564}
-  gizmoPosition: {x: -15, y: 2, z: -1}
-  gizmoName: End Level
---- !u!135 &381379566
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: -0.07600021, y: 1.65, z: 0.03799999}
---- !u!114 &381379567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381379554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b70d6889ad3ca44182e5057bfd23d83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gizmoCollider: {fileID: 381379566}
   gizmoPosition: {x: -0.07600021, y: 1.65, z: 0.03799999}
   gizmoName: Spawn
 --- !u!1001 &397147169
@@ -2245,7 +2140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &503988228
 Transform:
   m_ObjectHideFlags: 0
@@ -2710,7 +2605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.053441543, y: -0.9596662, z: 0.16011564, w: 0.22482842}
-  m_LocalPosition: {x: -3.35, y: 4.98, z: 5.96}
+  m_LocalPosition: {x: -2.9999998, y: 4.98, z: 5.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
